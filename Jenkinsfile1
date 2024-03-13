@@ -1,0 +1,29 @@
+pipeline {
+    agent { label 'node1' }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/Kundan-Arekar/jenkinslearning.git'
+            }
+        }
+        stage('Build') {
+            steps {
+               echo 'Build Started...'
+               bat 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test Started...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Replace this with your deployment steps
+                // This could involve copying files to a server, running a deployment script, etc.
+                echo "Deploying the application..."
+            }
+        }
+    }
+    }
