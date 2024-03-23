@@ -15,7 +15,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test Started...'
                 withMaven(maven: 'maven3.9.6')
                 sh 'mvn test'
             }
