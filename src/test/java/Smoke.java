@@ -1,5 +1,3 @@
-package SmokeTest;
-
 import org.testng.annotations.Test;
 
 public class Smoke {
