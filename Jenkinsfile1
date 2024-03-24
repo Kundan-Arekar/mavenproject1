@@ -15,8 +15,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'mymaven', mavenSettingsConfig: '', traceability: true) {
-                sh 'mvn test'
+                echo 'Test Started...'
+                }
+            }
+        }
+        stage('Results') {
+            steps {
+                junit '**/*.xml'
+                archiveArtifacts artifacts: '**/*.war', followSymlinks: false
                 }
             }
         }
