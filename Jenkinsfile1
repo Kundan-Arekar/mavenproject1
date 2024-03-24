@@ -15,7 +15,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test Started...'
+                withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'mymaven', mavenSettingsConfig: '', traceability: true) {
+                sh 'mvn test'
+                }
             }
         }
         stage('Deploy') {
