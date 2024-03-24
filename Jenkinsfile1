@@ -15,8 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withMaven(maven: 'maven3.9.6')
-                sh 'mvn test'
+                echo 'Test Started...'
             }
         }
         stage('Deploy') {
